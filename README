@@ -1,0 +1,52 @@
+koa2/
+|
++- .vscode/
+|  |
+|  +- launch.json <-- VSCode 配置文件
+|
++- bin/
+|  |
+|  +- db.js <-- 基于mysql数据库的封装
+|  |
+|  +- routes.js <-- 加载文件自动路由，分为一、二两种方法
+|  |
+|  +- run <-- 启动命令文件
+|  |
+|  +- www <-- 服务启动文件
+|  |
+|
++- config/
+|  |
+|  +- config.js <-- 单个配置文件
+|  |
+|  +- dev.js <-- 开发环境配置文件
+|  |
+|  +- prod.js <-- 生产环境
+|  |
+|  +- index.js <-- 根据环境不同加载不用的配置
+|  |
+|  +- log.js <-- log配置文件
+|  |
+|
++- config/ <-- 配置文件
+|  |
+|  +- src/ <-- 代码
+|     |
+|     +- controllers/ <-- 控制器
+|     |
+|     +- db/ <-- 数据库封装
+|     |
+|     +- error/ <-- 错误处理
+|     |
+|     +- models/ <-- model层
+|     |
+|
++- utils/ <-- 工具文件
+|
++- views/ <-- 模板视图
+|
++- app.js <-- 使用koa的js
+|
++- package.json <-- 项目描述文件
+|
++- node_modules/ <-- npm安装的所有依赖包

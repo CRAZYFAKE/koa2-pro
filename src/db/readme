@@ -1,0 +1,4 @@
+使用sequelize模块，mysql-orm框架
+
+执行node init-db.js 
+自动建表
