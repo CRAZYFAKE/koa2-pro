@@ -62,14 +62,27 @@ colors.setTheme({
 for (theme in colors.themes) {
 
     (function(theme) {
+        /**
+         * ...多参数
+         */
+        colors[theme] = function(...msgs) {
 
-        colors[theme] = function(msg) {
+            let str = '';
 
-            //将object 转化为 string
-            if (typeof msg === 'object') msg = JSON.stringify(msg);
+            for (var i = 0, length = msgs.length; i < length - 1; i++) {
+                //将object 转化为 string
+                if (typeof msgs[i] === 'object') msgs[i] = JSON.stringify(msgs[i]);
+                str += msgs[i] + ' ';
+            }
+            if (typeof msgs[i] === 'object') msgs[i] = JSON.stringify(msgs[i]);
+            str += msgs[i];
 
-            console.log(eval(`colors.${colors.themes[theme]}('${msg}')`));
+            console.log(eval(`colors.${colors.themes[theme]}('${str}')`));
+
+            str = undefined;
+            msgs = undefined;
         };
+
     })(theme);
 
 };
