@@ -40,25 +40,46 @@ const
     colors = require('colors/safe');
 
 colors.themes = {
-    ERROR: 'ERROR',
-    DATA: 'DATA'
+    info: 'INFO',
+    warn: 'WARN',
+    error: 'ERROR',
+    color: 'COLOR',
+    input: 'INPUT'
 };
 
 colors.setTheme({
-    INFO: ['green', 'bold'], //信息
-    WARN: ['magenta', 'bold', 'bgWhite'], //警告
-    ERROR: ['red', 'bgWhite', 'bold', 'inverse'], //错误
-    COLOR: ['rainbow', 'bold'], //彩虹
-    INPUT: ['grey', 'bold'] //输入
+    INFO: ['green', 'bold'], //信息 => 绿色，加粗
+    WARN: ['magenta', 'bold', 'underline'], //警告 => 品红色，加粗，下划线
+    ERROR: ['red', 'bold'], //错误 => 红色，加粗
+    COLOR: ['rainbow', 'bold'], //彩虹 => 彩色，加粗
+    INPUT: ['grey', 'bold'] //输入 => 灰色，加粗
 })
 
+/**
+ * 根据自定义的主题，导出对应的函数
+ * 函数名为主题名称的小写
+ */
+for (theme in colors.themes) {
+
+    (function(theme) {
+
+        colors[theme] = function(msg) {
+
+            //将object 转化为 string
+            if (typeof msg === 'object') msg = JSON.stringify(msg);
+
+            console.log(eval(`colors.${colors.themes[theme]}('${msg}')`));
+        };
+    })(theme);
+
+};
 
 /**
  * 输出信息
  * @param str   要输出的内容
  * @param theme 主题
  */
-colors.log = (str, theme) => {
+log = (str, theme) => {
 
     if (typeof str === 'object') str = JSON.stringify(str);
 
@@ -71,4 +92,5 @@ colors.log = (str, theme) => {
     }
 }
 
+delete colors['setTheme'];
 module.exports = colors;
