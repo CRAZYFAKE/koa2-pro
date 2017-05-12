@@ -9,7 +9,7 @@ const onerror = require('koa-onerror');
 const bodyparser = require('koa-bodyparser')();
 const logger = require('koa-logger');
 
-const API = require('./bin/router'); //自动路由
+const API = require('./bin/routes'); //自动路由
 const routes = require('./bin/routes'); //自动加载路由
 
 const logUtil = require('./utils/log_util'); //log工具

@@ -23,5 +23,8 @@ module.exports = {
             benchmark: true, //在打印执行的SQL日志时输出执行时间（毫秒）
             logging: console.log //用于Sequelize日志打印的函数，默认：console.log
         }
+    },
+    elastic: {
+        host: ['192.168.13.33:9200']
     }
 }

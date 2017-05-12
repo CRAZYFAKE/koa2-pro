@@ -3,13 +3,11 @@ const ApiErrorNames = require('../error/ApiErrorNames');
 const model = require('../db/dbmodel');
 
 var fn_hello = async(ctx, next) => {
-    console.log(ctx.request.body);
     var name = ctx.request.body.name;
     ctx.response.body = `<h1>Hello, ${name}!</h1>`;
 };
 
 var fn_hello_get = async(ctx, next) => {
-    console.log(cxt.params);
     var name = ctx.params.name;
     ctx.response.body = `<h1>Hello, ${name}!</h1>`;
 };
@@ -38,11 +36,6 @@ var getName = async(ctx, next) => {
             ctx.response.body = {
                 err: err.message
             };
-            // console.log(ApiErrorNames.USER_NOT_EXIST);
-            // console.log(new ApiError(ApiErrorNames.USER_NOT_EXIST));
-            // ctx.response.body = {
-            //     err: err.message
-            // };
         }
     } else {
         ctx.status = 404;
@@ -63,7 +56,7 @@ var del = async(ctx, next) => {
 }
 
 module.exports = {
-    // 'GET /hello/getName': getName,
+    'GET getName': getName,
     // 'POST /hello/name': fn_hello,
     'POST del': del
 };

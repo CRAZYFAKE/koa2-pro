@@ -1,9 +1,9 @@
-const fs = require('fs');
+const fs = require('fs'),
+    path = require('path');
 
 function addMapping(router, mapping, file) {
 
     const controller = file.split('.')[0];
-
     for (var url in mapping) {
         /**
          * 方法一、
@@ -44,7 +44,7 @@ function addMapping(router, mapping, file) {
          *  };
          */
 
-        router.all(`/${controller}/${url}`, mapping[url]);
+        // router.all(`/${controller}/${url}`, mapping[url]);
 
         /**
          * 2.请求分类
@@ -53,39 +53,38 @@ function addMapping(router, mapping, file) {
          *    'GET del': del
          *  };
          */
-        // const arr = url.split(' ');
-        // const HTTPMethod = arr[0]; //http方法
-        // const COROMethod = arr[1]; //controller里的方法
-        // const ORIGINLUrl = `/${controller}/${COROMethod}`;
-        // console.log(ORIGINLUrl)
-        // switch (HTTPMethod) {
-        //     case 'GET':
-        //         router.get(ORIGINLUrl, mapping[url]);
-        //         break;
-        //     case 'POST':
-        //         router.post(ORIGINLUrl, mapping[url]);
-        //         break;
-        //     case 'PUT':
-        //         router.put(ORIGINLUrl, mapping[url]);
-        //         break;
-        //     case 'DELETE':
-        //         router.del(ORIGINLUrl, mapping[url]);
-        //         break;
-        //     default:
-        //         console.log(`invalid URL: /${ORIGINLUrl}`);
-        //         break;
-        // }
+        const arr = url.split(' ');
+        const HTTPMethod = arr[0]; //http方法
+        const COROMethod = arr[1]; //controller里的方法
+        const ORIGINLUrl = `/${controller}/${COROMethod}`;
+        switch (HTTPMethod) {
+            case 'GET':
+                router.get(ORIGINLUrl, mapping[url]);
+                break;
+            case 'POST':
+                router.post(ORIGINLUrl, mapping[url]);
+                break;
+            case 'PUT':
+                router.put(ORIGINLUrl, mapping[url]);
+                break;
+            case 'DELETE':
+                router.del(ORIGINLUrl, mapping[url]);
+                break;
+            default:
+                console.log(`invalid URL: /${ORIGINLUrl}`);
+                break;
+        }
     }
 }
 
 function addControllers(router, dir) {
     var gang = __dirname.lastIndexOf('/');
     var root = __dirname.substring(0, gang);
-    let path = root + dir;
-    fs.readdirSync(path).filter((f) => {
+    let path1 = path.join(process.cwd(), dir);
+    fs.readdirSync(path1).filter((f) => {
         return f.endsWith('.js');
     }).forEach((f) => {
-        let mapping = require(path + '/' + f);
+        let mapping = require(path1 + '/' + f);
         addMapping(router, mapping, f);
     });
 }
