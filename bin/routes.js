@@ -78,8 +78,6 @@ function addMapping(router, mapping, file) {
 }
 
 function addControllers(router, dir) {
-    var gang = __dirname.lastIndexOf('/');
-    var root = __dirname.substring(0, gang);
     let path1 = path.join(process.cwd(), dir);
     fs.readdirSync(path1).filter((f) => {
         return f.endsWith('.js');

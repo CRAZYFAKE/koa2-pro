@@ -6,6 +6,7 @@ var ApiErrorNames = {};
 ApiErrorNames.UNKNOW_ERROR = "unknowError";
 ApiErrorNames.USER_NOT_EXIST = "userNotExist";
 ApiErrorNames.ILLEGAL_PARAMS = 'illegalParameters'
+ApiErrorNames.Internal_Error = 'internalError'
 
 /**
  * API错误名称对应的错误信息
@@ -25,7 +26,7 @@ ERROR_MAP.set(ApiErrorNames.ILLEGAL_PARAMS, { code: 400002, message: 'illegal pa
 // ERROR_MAP.set(ApiErrorNames.UNKNOW_ERROR, { code: , message: '', info: '' });
 // ERROR_MAP.set(ApiErrorNames.UNKNOW_ERROR, { code: , message: '', info: '' });
 // ERROR_MAP.set(ApiErrorNames.UNKNOW_ERROR, { code: , message: '', info: '' });
-// ERROR_MAP.set(ApiErrorNames.UNKNOW_ERROR, { code: , message: '', info: '' });
+ERROR_MAP.set(ApiErrorNames.Internal_Error, { code: 500000, message: 'internal error', info: '内部错误' });
 
 //根据错误名称获取错误信息
 ApiErrorNames.getErrorInfo = (error_name) => {

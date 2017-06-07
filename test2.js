@@ -9,3 +9,29 @@ color.color('there is a rainbow')
 
 // const log = require('.././utils/colors');
 // log.info('1231231');
+
+function Foo1() {
+    this.name1 = '1';
+}
+
+function Foo2() {
+    this.name2 = '2';
+}
+Foo2.prototype = new Foo1();
+
+function Foo3() {
+    this.name = '3';
+}
+Foo3.prototype = new Foo2();
+var foo3 = new Foo3();
+console.dir(foo3.__proto__.__proto__.__proto__.__proto__.__proto__);
+
+function Person() {
+
+}
+let person1 = new Person();
+console.log(
+    person1.constructor == Person);
+console.log(
+    Person.prototype.constructor == Person)
+console.log(Person.prototype.constructor == person1.constructor)

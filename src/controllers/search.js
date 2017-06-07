@@ -1,7 +1,8 @@
 const ApiError = require('../error/ApiError');
 const ApiErrorNames = require('../error/ApiErrorNames');
 const model = require('../db/dbmodel');
-const D = require('../../bin/Models.js');
+const D = require('../../bin/Models.js'),
+    color = require('../../utils/colors');
 
 var insert = async(ctx, next) => {
     const name = ctx.request.body.name;
@@ -60,6 +61,15 @@ var indices = async(ctx, next) => {
     }
 }
 
+var err = async(ctx, next) => {
+    let error = new ApiError(ApiErrorNames.Internal_Error);
+    color.info('1111');
+    ctx.status = 500;
+    ctx.response.body = {
+        err: error
+    };
+}
+
 var pro = (name) => {
     return new Promise((resolve, reject) => {
         resolve(name + ' 11');
@@ -73,5 +83,6 @@ var del = async(ctx, next) => {
 module.exports = {
     'POST insert': insert,
     'POST query': query,
-    'GET indices': indices
+    'GET indices': indices,
+    'GET error': err
 };
