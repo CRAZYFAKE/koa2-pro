@@ -35,3 +35,20 @@ console.log(
 console.log(
     Person.prototype.constructor == Person)
 console.log(Person.prototype.constructor == person1.constructor)
+
+
+promise = function() {
+    return new Promise((resolve, reject) => {
+        throw new Error('test error');
+        // resolve(aaaa);
+    });
+}
+try {
+    promise().then(data => {
+
+    }, err => {
+        console.log(err.toString())
+    });
+} catch (error) {
+    console.log('try catch', error)
+}

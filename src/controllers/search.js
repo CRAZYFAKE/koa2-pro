@@ -51,6 +51,7 @@ var query = async(ctx, next) => {
  */
 var indices = async(ctx, next) => {
     try {
+        const req = ctx.request;
         var indices = await D('es').indices();
         ctx.body = indices;
     } catch (err) {
