@@ -7,13 +7,13 @@ module.exports = {
     port: 3000, //服务端口号
     redis: {},
     mysql: {
-        host: '192.168.13.66',
-        db: 'nrj',
-        port: '3306',
-        user: 'root',
-        pass: '123456',
+        host: '',
+        db: '',
+        port: '',
+        user: '',
+        pass: '',
         config: {
-            host: '192.168.13.66', //数据库ip地址
+            host: '', //数据库ip地址
             dialect: 'mysql', //要连接的数据库类型。可选值有：mysql、postgres、sqlite、mariadb、mssql
             pool: { //使用连接池连接，默认为true
                 max: 200, //连接池最大连接数，默认为5
@@ -25,6 +25,6 @@ module.exports = {
         }
     },
     elastic: {
-        host: ['192.168.13.33:9200']
+        host: ['']
     }
 }
