@@ -1,31 +1,9 @@
 {
-	// "globals": {
-	// 	"$": false,
-	// 	"window": false,
-	// 	"document": false
-	// },
-	// "predef": [
-	// 	"module",
-	// 	"require",
-	// 	"__dirname",
-	// 	"process",
-	// 	"console",
-	// 	"it",
-	// 	"describe",
-	// 	"before",
-	// 	"after"
-	// ],
-	// "strict": true,
-	// "curly": true,
-	// "eqeqeq": true,
-	// "noarg": true,
-	// "noempty": true,
-	// "quotmark": "single",
-	// "undef": true,
-	// "unused": true,
-	// "console": true,
-	// "module": true
-	// // "node" : true
+	"globals": {
+		"$": false,
+		"window": false,
+		"document": false
+	},
 	"predef": [
 		"module",
 		"require",
