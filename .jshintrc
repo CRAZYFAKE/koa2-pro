@@ -1,15 +1,63 @@
 {
-	"globals": {
-		"$": false,
-		"window": false,
-		"document": false
-	},
-	"strict": true,
-	"curly": true,
-	"eqeqeq": true,
-	"noarg": true,
-	"noempty": true,
-	"quotmark": "single",
-	"undef": true,
-	"unused": true
+	// "globals": {
+	// 	"$": false,
+	// 	"window": false,
+	// 	"document": false
+	// },
+	// "predef": [
+	// 	"module",
+	// 	"require",
+	// 	"__dirname",
+	// 	"process",
+	// 	"console",
+	// 	"it",
+	// 	"describe",
+	// 	"before",
+	// 	"after"
+	// ],
+	// "strict": true,
+	// "curly": true,
+	// "eqeqeq": true,
+	// "noarg": true,
+	// "noempty": true,
+	// "quotmark": "single",
+	// "undef": true,
+	// "unused": true,
+	// "console": true,
+	// "module": true
+	// // "node" : true
+	"predef": [
+		"module",
+		"require",
+		"__dirname",
+		"process",
+		"console",
+		"it",
+		"describe",
+		"before",
+		"after"
+	  ],
+	
+	  "node" : true,
+	  "es5": true,
+	  "bitwise": true,
+	  "curly": true,
+	  "eqeqeq": true,
+	  "forin": false,
+	  "immed": true,
+	  "latedef": true,
+	  "newcap": true,
+	  "noarg": true,
+	  "noempty": true,
+	  "nonew": true,
+	  "plusplus": false,
+	  "undef": true,
+	  "strict": false,
+	  "trailing": false,
+	  "globalstrict": true,
+	  "nonstandard": true,
+	  "white": true,
+	  "indent": 2,
+	  "expr": true,
+	  "onevar": false
 }
